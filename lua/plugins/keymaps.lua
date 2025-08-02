@@ -82,7 +82,8 @@ vim.keymap.set('n', '<leader>r', function()
     if not internal_term:is_open() then
       internal_term:open()
     end
-    internal_term:send('python3 ' .. file)
+      internal_term:send('{ /usr/bin/time -p python3 ' .. file .. '; }')
+
     vim.defer_fn(function()
       vim.cmd('stopinsert')
       vim.cmd('wincmd p')
@@ -103,4 +104,9 @@ vim.keymap.set('n', '<leader>T', function()
     vim.cmd('wincmd h')
   end, 100)
 end, { desc = 'Move terminal to right split' })
+
+
+vim.keymap.set("x", "s", function()
+  require("mini.surround").visual_add()
+end, { noremap = true, silent = true })
 

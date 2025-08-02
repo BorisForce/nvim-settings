@@ -30,3 +30,22 @@ vim.schedule(function()
   vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#ffffff", bg = "#1e1e2e" })
 end)
 
+
+vim.opt.wrap = false
+vim.opt.linebreak = false
+vim.opt.textwidth = 0
+vim.opt.formatoptions:remove({ "t", "c", "r", "o" })
+
+vim.api.nvim_create_augroup("NoWrapAll", { clear = true })
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  group = "NoWrapAll",
+  pattern = "*",
+  callback = function()
+    vim.opt_local.wrap = false
+    vim.opt_local.linebreak = false
+    vim.opt_local.textwidth = 0
+    vim.opt_local.formatoptions:remove({ "t", "c", "r", "o" })
+  end,
+})
+
+

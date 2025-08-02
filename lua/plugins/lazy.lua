@@ -220,7 +220,19 @@ require("lazy").setup({
       },
     })
   end,
+},
+
+{
+  "echasnovski/mini.surround",
+  version = false,
+  lazy = false,  -- <- force it to load immediately
+  config = function()
+    require("mini.surround").setup()
+  end,
 }
+
+
+
 
 
 

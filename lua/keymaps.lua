@@ -59,3 +59,10 @@ end
 vim.keymap.set("n", "<leader>+", function() resize_term(2) end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ľ", function() resize_term(-2) end, { noremap = true, silent = true })
 
+-- J/K in visual mode
+vim.keymap.set("v", "J", "10j", { noremap = true, silent = true })
+vim.keymap.set("v", "K", "10k", { noremap = true, silent = true })
+
+-- J/K in terminal mode
+vim.keymap.set("t", "J", [[<C-\><C-n>10j]], { noremap = true, silent = true })
+vim.keymap.set("t", "K", [[<C-\><C-n>10k]], { noremap = true, silent = true })
